@@ -18,7 +18,6 @@ public class DbUtilsTest {
     // 查询
     @Test
     public void selectTest() throws SQLException {
-
         String sql = "select * from account";
 
         QueryRunner runner = new QueryRunner();
