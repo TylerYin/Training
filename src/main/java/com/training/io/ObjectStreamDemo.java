@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.utils.SystemHelper;
+import com.training.util.SystemUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -30,14 +30,14 @@ public class ObjectStreamDemo {
 
     public void writeObj() throws IOException {
         final Person p = new Person("lisi", 20);
-        final FileOutputStream fos = new FileOutputStream(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/obj.object");
+        final FileOutputStream fos = new FileOutputStream(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/obj.object");
         final ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(p);
         oos.close();
     }
 
     public void readObj() throws IOException, ClassNotFoundException {
-        final FileInputStream fis = new FileInputStream(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/obj.object");
+        final FileInputStream fis = new FileInputStream(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/obj.object");
         final ObjectInputStream ois = new ObjectInputStream(fis);
         final Object obj = ois.readObject();
         System.out.println(obj.toString());

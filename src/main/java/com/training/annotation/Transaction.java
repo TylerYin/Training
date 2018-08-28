@@ -1,6 +1,6 @@
 package com.training.annotation;
 
-import com.training.utils.SystemHelper;
+import com.training.util.SystemUtils;
 
 import java.lang.reflect.Method;
 
@@ -15,8 +15,8 @@ import java.lang.reflect.Method;
 public class Transaction {
 	// name1向name2转账money元---使用配置文件完成
 	public void transaction1(String name1, String name2, int money) {
-		if (money > SystemHelper.MONEY) {
-			throw new RuntimeException("最大转账金额为:" + SystemHelper.MONEY + "元");
+		if (money > SystemUtils.MONEY) {
+			throw new RuntimeException("最大转账金额为:" + SystemUtils.MONEY + "元");
 		}
 		System.out.println(name1 + "向" + name2 + "转账:" + money + "元");
 	}

@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Tyler Yin
  */
-public class Person {
+public class CopiedPerson {
     private String name = "";
     private String email = "";
     private int age;
@@ -46,4 +45,3 @@ public class Person {
         this.hobbies = hobbies;
     }
 }
-

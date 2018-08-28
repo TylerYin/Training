@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.utils.SystemHelper;
+import com.training.util.SystemUtils;
 
 import java.io.*;
 
@@ -50,7 +50,7 @@ public class TransStreamTest {
 
     public void readCN() throws IOException {
         //创建InputStreamReader对象。
-        final InputStreamReader isr = new InputStreamReader(new FileInputStream(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt"), "UTF-8");
+        final InputStreamReader isr = new InputStreamReader(new FileInputStream(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt"), "UTF-8");
         char[] buf = new char[1024];
         int len = isr.read(buf);
         System.out.println(new String(buf, 0, len));
@@ -61,7 +61,7 @@ public class TransStreamTest {
     public void readCN_no() throws IOException {
         // 使用FileReader没出来，因为文件是UTF-8编码。读取UTF-8字节时，用该指定用UTF-8解码。
         // 说明需要指定码表。那就需要使用InputStreamReader。
-        final FileReader fr = new FileReader(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt");
+        final FileReader fr = new FileReader(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt");
         //int ch = (char)fr.read();
         //System.out.println((char)ch);
         char[] buf = new char[1024];
@@ -78,7 +78,7 @@ public class TransStreamTest {
         //OutputStreamWriter 是字符流通向字节流的桥梁：可使用指定的 charset 将要写入流中的字符编码成字节。
         //它的作用的就是，将字符串按照指定的编码表转成字节，在使用字节流将这些字节写出去。
 
-        final OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt"), "utf-8");
+        final OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/u8cn.txt"), "utf-8");
         osw.write("你好");//写入缓冲区。
         osw.close();
     }
