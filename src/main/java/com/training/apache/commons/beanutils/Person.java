@@ -1,9 +1,18 @@
 package com.training.apache.commons.beanutils;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Tyler Yin
+ */
 public class Person {
     private String name = "";
     private String email = "";
     private int age;
+
+    private List<Hobby> hobbies = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -27,6 +36,14 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
     }
 }
 

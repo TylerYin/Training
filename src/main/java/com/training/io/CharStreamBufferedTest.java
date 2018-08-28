@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.utils.SystemHelper;
+import com.training.util.SystemUtils;
 
 import java.io.*;
 
@@ -32,7 +32,7 @@ public class CharStreamBufferedTest {
     }
 
     public void writeText() throws IOException {
-        final BufferedWriter bufw = new BufferedWriter(new FileWriter(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
+        final BufferedWriter bufw = new BufferedWriter(new FileWriter(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
         for (int x = 1; x <= 4; x++) {
             bufw.write(x + "-itcast");
             bufw.newLine();
@@ -42,7 +42,7 @@ public class CharStreamBufferedTest {
     }
 
     public void readText() throws IOException {
-        final BufferedReader bufr = new BufferedReader(new FileReader(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
+        final BufferedReader bufr = new BufferedReader(new FileReader(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
         String line = null;
         while ((line = bufr.readLine()) != null) {
             System.out.println(line);
@@ -57,8 +57,8 @@ public class CharStreamBufferedTest {
     }
 
     public void copyTextByBuffer() throws IOException {
-        BufferedReader bufr = new BufferedReader(new FileReader(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
-        BufferedWriter bufw = new BufferedWriter(new FileWriter(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/test24_bufcopy.java"));
+        BufferedReader bufr = new BufferedReader(new FileReader(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/Test24.java"));
+        BufferedWriter bufw = new BufferedWriter(new FileWriter(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/test24_bufcopy.java"));
 
         //循环读写一行数据。
         String line = null;

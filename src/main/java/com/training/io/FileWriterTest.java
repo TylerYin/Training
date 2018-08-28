@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.utils.SystemHelper;
+import com.training.util.SystemUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -16,7 +16,7 @@ public class FileWriterTest {
     @Test
     public void test() throws IOException {
         //演示FileWriter 用于操作文件的便捷类。
-        final FileWriter fw = new FileWriter(SystemHelper.getCurrentPath(new File("."), this.getClass()) + "/fw.txt");
+        final FileWriter fw = new FileWriter(SystemUtils.getCurrentPath(new File("."), this.getClass()) + "/fw.txt");
         fw.write("你好谢谢再见");//这些文字都要先编码。都写入到了流的缓冲区中。
         fw.flush();
         fw.close();
