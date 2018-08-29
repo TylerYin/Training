@@ -1,6 +1,6 @@
 package com.training.apache.commons.dbutils.metadata;
 
-import com.training.apache.commons.dbutils.utils.JdbcUtils;
+import com.util.JdbcUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

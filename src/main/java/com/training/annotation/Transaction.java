@@ -1,6 +1,6 @@
 package com.training.annotation;
 
-import com.training.util.SystemUtils;
+import com.util.SystemUtils;
 
 import java.lang.reflect.Method;
 

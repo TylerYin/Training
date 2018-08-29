@@ -1,4 +1,4 @@
-package com.training.util;
+package com.util;
 
 import java.io.File;
 import java.io.IOException;

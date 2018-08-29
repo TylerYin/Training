@@ -1,4 +1,4 @@
-package com.training.apache.commons.dbutils.utils;
+package com.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,6 +8,11 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
+/**
+ * DataSource工具类
+ *
+ * @author Tyler Yin
+ */
 public class DataSourceUtils {
 
     private static BasicDataSource bds = new BasicDataSource();
@@ -20,10 +25,25 @@ public class DataSourceUtils {
         bds.setUsername(resourceBundle.getString("username"));
         bds.setPassword(resourceBundle.getString("password"));
 
-        bds.setInitialSize(10);//初始化时创建10个链接
-        bds.setMaxTotal(8);//设置最大连接数
-        bds.setMaxIdle(5);//这只最大的空闲连接数
-        bds.setMinIdle(1);//设置最小空闲连接数字
+        /**
+         * 初始化时创建10个链接
+         */
+        bds.setInitialSize(10);
+
+        /**
+         * 设置最大连接数
+         */
+        bds.setMaxTotal(8);
+
+        /**
+         * 这只最大的空闲连接数
+         */
+        bds.setMaxIdle(5);
+
+        /**
+         * 设置最小空闲连接数字
+         */
+        bds.setMinIdle(1);
     }
 
     public static DataSource getDataSource() {

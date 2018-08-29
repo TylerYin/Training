@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.util.SystemUtils;
+import com.util.SystemUtils;
 
 import java.io.*;
 

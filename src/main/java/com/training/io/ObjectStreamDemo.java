@@ -1,6 +1,6 @@
 package com.training.io;
 
-import com.training.util.SystemUtils;
+import com.util.SystemUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;

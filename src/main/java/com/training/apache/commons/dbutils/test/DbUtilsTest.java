@@ -7,15 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.training.apache.commons.dbutils.domain.Account;
-import com.training.apache.commons.dbutils.utils.JdbcUtils;
+import com.util.JdbcUtils;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.junit.Test;
 
+/**
+ * DBUtils测试类
+ *
+ * @author Tyler Yin
+ */
 public class DbUtilsTest {
 
-    // 查询
+    /**
+     * 查询测试
+     *
+     * @throws SQLException
+     */
     @Test
     public void selectTest() throws SQLException {
         String sql = "select * from account";
@@ -24,6 +33,7 @@ public class DbUtilsTest {
         Connection con = JdbcUtils.getConnection();
         List<Account> as = runner.query(con, sql,
                 new ResultSetHandler<List<Account>>() {
+                    @Override
                     public List<Account> handle(ResultSet rs)
                             throws SQLException {
                         List<Account> as = new ArrayList<>();
@@ -43,7 +53,11 @@ public class DbUtilsTest {
         DbUtils.close(con);
     }
 
-    // 添加
+    /**
+     * 添加测试
+     *
+     * @throws SQLException
+     */
     @Test
     public void addTest() throws SQLException {
         String sql = "insert into account values(null,?,?)";

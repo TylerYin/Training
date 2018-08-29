@@ -1,6 +1,6 @@
 package com.fwzs.bitmatrix;
 
-import com.fwzs.util.ZxingHandler;
+import com.util.ZxingHandlerUtils;
 import org.junit.Test;
 
 import java.io.*;
@@ -15,7 +15,7 @@ public class GenerateBitMatrixTest {
 
     @Test
     public void testGenerateBitMatrix() {
-        String bitMatrixFilePath = "F:\\biMatrix_Source\\CF180816002.txt.gz";
+        String bitMatrixFilePath = "F:\\biMatrix_Source\\D_004_20180828174036_5.txt.gz";
 
         String line;
         String qrCode;
@@ -37,7 +37,7 @@ public class GenerateBitMatrixTest {
                     qrCode = line;
                 }
                 count++;
-                ZxingHandler.encode2(line, 400, 400, bitMatrixStorePath + "\\" + qrCode + ".jpg");
+                ZxingHandlerUtils.encode2(line, 400, 400, bitMatrixStorePath + "\\" + qrCode + ".jpg");
             }
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
