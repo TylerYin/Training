@@ -1,6 +1,6 @@
 package com.fwzs.qrcode;
 
-import com.training.util.SystemUtils;
+import com.util.SystemUtils;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 

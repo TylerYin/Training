@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.training.apache.commons.dbutils.domain.Account;
-import com.training.apache.commons.dbutils.utils.DataSourceUtils;
+import com.util.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.junit.Test;

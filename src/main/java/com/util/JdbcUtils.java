@@ -1,4 +1,4 @@
-package com.training.apache.commons.dbutils.utils;
+package com.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+/**
+ * @Author Tyler Yin
+ */
 public class JdbcUtils {
     private static final String DRIVERCLASS;
     private static final String URL;
