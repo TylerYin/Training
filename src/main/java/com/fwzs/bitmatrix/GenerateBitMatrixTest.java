@@ -1,6 +1,7 @@
 package com.fwzs.bitmatrix;
 
 import com.util.ZxingHandlerUtils;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
@@ -14,65 +15,37 @@ import java.util.zip.GZIPInputStream;
  */
 public class GenerateBitMatrixTest {
 
-    @Test
-    public void testGenerateBitMatrixBySpecifiedFile() {
-        String bitMatrixFilePath = "F:\\biMatrix_Source\\CF180903003.txt.gz";
+    private String filePath;
 
-        String line;
-        String qrCode;
-        File file = new File(bitMatrixFilePath);
-        String bitMatrixStorePath = "F:\\biMatrix_Destination\\" + file.getName().substring(0, file.getName().indexOf(".txt.gz"));
-
-        int count = 0;
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new GZIPInputStream(new FileInputStream(file)), "UTF-8"))) {
-            File destinationDirectory = new File(bitMatrixStorePath);
-            if (!destinationDirectory.exists()) {
-                destinationDirectory.mkdirs();
-            }
-
-            while (null != (line = reader.readLine())) {
-                if (line.contains("=")) {
-                    qrCode = line.substring(line.indexOf("=") + 1);
-                } else {
-                    qrCode = line;
-                }
-                count++;
-                ZxingHandlerUtils.encode2(line, 400, 400, bitMatrixStorePath + "\\" + qrCode + ".jpg");
-            }
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        System.out.println("总共生成二维码数量 ：" + count);
+    @Before
+    public void setup() {
+        filePath = "F:\\biMatrix_Source";
     }
 
     @Test
     public void testGenerateBitMatrixByDirectory() {
-        String filePath = "F:\\biMatrix_Source";
         File file = new File(filePath);
         if (file.isDirectory()) {
-            File[] files = file.listFiles();
-            Arrays.stream(files).forEach(f -> {
-                if (-1 == f.getPath().indexOf(".txt.gz")) {
-                    deleteFolder(f.getPath());
-                }
-            });
+            Arrays.stream(file.listFiles()).filter(f -> -1 == f.getPath().indexOf(".txt.gz")).forEach(f -> deleteFolder(f.getPath()));
         }
 
         file = new File(filePath);
         if (file.isDirectory()) {
-            File[] files = file.listFiles();
-            Arrays.stream(files).forEach(f -> {
-                String destinationDirectory = f.getParentFile().getPath() + "\\" + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
-                File directory = new File(destinationDirectory);
+            Arrays.stream(file.listFiles()).forEach(f -> {
+                String storePath = f.getParentFile().getPath() + File.separator + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
+                File directory = new File(storePath);
                 directory.mkdirs();
-                generateMatrixByQrcode(f, destinationDirectory);
+                generateMatrixByQrcode(f, storePath);
             });
         }
     }
 
+    /**
+     * 根据码文件生成二维码图片
+     *
+     * @param file
+     * @param storePath
+     */
     private void generateMatrixByQrcode(File file, String storePath) {
         String line;
         String qrcode;
@@ -85,7 +58,7 @@ public class GenerateBitMatrixTest {
                 } else {
                     qrcode = line;
                 }
-                ZxingHandlerUtils.encode2(line, 400, 400, storePath + "\\" + qrcode + ".jpg");
+                ZxingHandlerUtils.encode2(line, 400, 400, storePath + File.separator + qrcode + ".jpg");
                 count++;
             }
         } catch (FileNotFoundException ex) {
@@ -96,6 +69,12 @@ public class GenerateBitMatrixTest {
         System.out.println("文件 " + file.getName() + " 生成二维码 " + count + " 个");
     }
 
+    /**
+     * 删除文件夹及子文件夹
+     *
+     * @param sPath
+     * @return
+     */
     private boolean deleteFolder(String sPath) {
         boolean flag = false;
         File file = new File(sPath);
@@ -111,12 +90,13 @@ public class GenerateBitMatrixTest {
     }
 
     /**
-     * 删除目录（文件夹）以及目录下的文件
+     * 删除目录以及目录下的文件
      */
     private boolean deleteDirectory(String sPath) {
         if (!sPath.endsWith(File.separator)) {
             sPath = sPath + File.separator;
         }
+
         File dirFile = new File(sPath);
         if (!dirFile.exists() || !dirFile.isDirectory()) {
             return false;
