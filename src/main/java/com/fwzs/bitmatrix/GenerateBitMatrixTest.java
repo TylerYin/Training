@@ -26,13 +26,13 @@ public class GenerateBitMatrixTest {
     public void testGenerateBitMatrixByDirectory() {
         File file = new File(filePath);
         if (file.isDirectory()) {
-            Arrays.stream(file.listFiles()).filter(f -> -1 == f.getPath().indexOf(".txt.gz")).forEach(f -> deleteFolder(f.getPath()));
+            Arrays.stream(file.listFiles()).filter(f -> -1 == f.getAbsolutePath().indexOf(".txt.gz")).forEach(f -> deleteFolder(f.getAbsolutePath()));
         }
 
         file = new File(filePath);
         if (file.isDirectory()) {
             Arrays.stream(file.listFiles()).forEach(f -> {
-                String storePath = f.getParentFile().getPath() + File.separator + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
+                String storePath = f.getParentFile().getAbsolutePath() + File.separator + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
                 File directory = new File(storePath);
                 directory.mkdirs();
                 generateMatrixByQrcode(f, storePath);
