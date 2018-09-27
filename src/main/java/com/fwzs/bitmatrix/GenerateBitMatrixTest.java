@@ -1,6 +1,7 @@
 package com.fwzs.bitmatrix;
 
 import com.util.ExtractPinYinFromHanZiUtils;
+import com.util.NumberFormatUtils;
 import com.util.ZxingHandlerUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +49,8 @@ public class GenerateBitMatrixTest {
                 String storePath = f.getParentFile().getAbsolutePath() + File.separator + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
                 File directory = new File(storePath);
                 directory.mkdirs();
-                generateMatrixByQrcode(f, storePath);
+                //generateMatrixByQrcode(f, storePath);
+                generateOutBoundCodeFile(f);
             });
         }
     }
@@ -86,14 +89,28 @@ public class GenerateBitMatrixTest {
      *
      * @param file
      */
-    private void generateOutBoundFile(File file) {
+    private void generateOutBoundCodeFile(File file) {
         String line;
         String qrcode;
-        int count = 0;
-        String outBoundNo = "CKD180921028";
 
+        int count = 1;
+
+        int groupNumber = 5000;
+        int outBoundNumber = 40;
+        int generateItemsLimit = groupNumber * outBoundNumber;
+
+        String codeType = "0";
+        String prodCode = "004";
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < outBoundNumber; i++) {
+            list.add("CKD180921" + NumberFormatUtils.format(3, 3, false, i));
+        }
+
+        List<String> codeList = new ArrayList<>(groupNumber);
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
                 new GZIPInputStream(new FileInputStream(file)), "UTF-8"))) {
+            int index = 0;
             while (null != (line = reader.readLine())) {
                 if (line.contains("=")) {
                     qrcode = line.substring(line.indexOf("=") + 1);
@@ -101,9 +118,17 @@ public class GenerateBitMatrixTest {
                     qrcode = line;
                 }
 
-                //44683,14782721004270304531761680609864,2018-09-25 11:05:22.000,0,004,CKD180921028
-                System.out.println(count + "," + qrcode + "," + sdf.format(new Date()) + ",0,004," + outBoundNo);
+                codeList.add(count + "," + qrcode + "," + sdf.format(new Date()) + "," + codeType + "," + prodCode + "," + list.get(index));
+                if (count % groupNumber == 0) {
+                    codeList.stream().forEach(System.out::println);
+                    codeList.clear();
+                    index++;
+                }
+
                 count++;
+                if (count > generateItemsLimit) {
+                    break;
+                }
             }
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
