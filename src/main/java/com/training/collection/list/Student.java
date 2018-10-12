@@ -1,5 +1,8 @@
 package com.training.collection.list;
 
+/**
+ * @author Tyler Yin
+ **/
 public class Student implements Comparable {
 
     private String name;
@@ -21,7 +24,9 @@ public class Student implements Comparable {
     @Override
     public int hashCode() {
         final int NUMBER = 24;
-        return name.hashCode() + age * NUMBER;// 乘以24(随意)为了尽量保证hash值不同
+
+        // 乘以24(随意)为了尽量保证hash值不同
+        return name.hashCode() + age * NUMBER;
         // return 1;
     }
 

@@ -24,8 +24,9 @@ public class SystemPropertiesTest {
          * currentTimeMilles:获取当前时间。可以用于计算程序运行时间只要将开始时间和结束时间相减即可。
          */
 
+        //毫秒值
         long time = System.currentTimeMillis();
-        System.out.println(time);//毫秒值
+        System.out.println(time);
 
         //演示getProperties()获取系统属性集。
         final Properties prop = System.getProperties();
@@ -35,7 +36,8 @@ public class SystemPropertiesTest {
         //获取键集合。
         final Set<String> keySet = prop.stringPropertyNames();
         for (String key : keySet) {
-            String value = prop.getProperty(key);//通过键获取值。
+            //通过键获取值
+            String value = prop.getProperty(key);
             System.out.println(key + "::::" + value);
         }
 

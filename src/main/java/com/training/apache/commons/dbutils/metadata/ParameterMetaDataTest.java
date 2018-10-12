@@ -7,7 +7,9 @@ import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
+/**
+ * @author Tyler
+ */
 public class ParameterMetaDataTest {
 
     public static void main(String[] args) throws SQLException {
@@ -19,7 +21,8 @@ public class ParameterMetaDataTest {
         // 获取一个ParameterMetaData
         ParameterMetaData pmd = pst.getParameterMetaData();
 
-        int count = pmd.getParameterCount(); // 获取参数 个数
+        // 获取参数个数
+        int count = pmd.getParameterCount();
         System.out.println(count);
 
         String type1 = pmd.getParameterTypeName(1);

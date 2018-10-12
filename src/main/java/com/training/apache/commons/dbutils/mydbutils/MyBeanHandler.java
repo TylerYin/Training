@@ -17,10 +17,11 @@ public class MyBeanHandler implements MyResultSetHandler {
 		this.clazz = clazz;
 	}
 
+	@Override
 	public Object handle(ResultSet rs) throws SQLException {
 		Object obj = null;
 
-		Map<String, String[]> map = new HashMap<String, String[]>();
+		Map<String, String[]> map = new HashMap<>(10);
 
 		ResultSetMetaData md = rs.getMetaData();
 		int count = md.getColumnCount();
@@ -40,9 +41,7 @@ public class MyBeanHandler implements MyResultSetHandler {
 			} catch (InvocationTargetException e) {
 				e.printStackTrace();
 			}
-
 		}
-
 		return obj;
 	}
 

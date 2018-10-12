@@ -10,10 +10,12 @@ import java.lang.reflect.Method;
  * @author Tyler Yin
  * @create 2017-11-04 19:26
  **/
-
-//银行最大转账金额5000
 public class Transaction {
-	// name1向name2转账money元---使用配置文件完成
+
+	/**
+	 * 银行最大转账金额5000
+	 * name1向name2转账money元---使用配置文件完成
+	 */
 	public void transaction1(String name1, String name2, int money) {
 		if (money > SystemUtils.MONEY) {
 			throw new RuntimeException("最大转账金额为:" + SystemUtils.MONEY + "元");
@@ -21,7 +23,15 @@ public class Transaction {
 		System.out.println(name1 + "向" + name2 + "转账:" + money + "元");
 	}
 
-	// name1向name2转账money元--使用注解
+	/**
+	 * name1向name2转账money元--使用注解
+	 *
+	 * @param name1
+	 * @param name2
+	 * @param money
+	 * @throws NoSuchMethodException
+	 * @throws SecurityException
+	 */
 	@BankInfo(maxMoney = 10000)
 	public void transaction2(String name1, String name2, int money)
 			throws NoSuchMethodException, SecurityException {

@@ -1,5 +1,8 @@
 package com.training.apache.commons.beanutils;
 
+/**
+ * @Author Tyler Yin
+ */
 public class Hobby {
     private String hobbyName;
     private String hobbyDescription;

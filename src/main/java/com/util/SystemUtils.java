@@ -50,5 +50,4 @@ public class SystemUtils {
         numberFormat.setGroupingUsed(groupingUsed);
         return numberFormat.format(source);
     }
-
 }

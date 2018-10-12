@@ -1,7 +1,5 @@
 package com.training.collection.list;
 
-
-
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -22,11 +20,14 @@ public class MapTest {
         //System.out.println(map.get("星期一"));
         //怎么获取到所有的键呢？既然是所有的键，应该是一个集合，而且是一个单列集合。
         //list还是set呢？应该是set，因为map集合中键需要保证唯一性。
-        //找到一个方法   Set<k> keySet();获取map集合中的键的set集合。
+        //找到一个方法   Set<k> keySet();获取map集合中的键的set集合
+
         final Set<String> keySet = map.keySet();
         for (Iterator<String> it = keySet.iterator(); it.hasNext(); ) {
             String key = it.next();
-            String value = map.get(key);//通过键获取对应的值。
+
+            //通过键获取对应的值
+            String value = map.get(key);
             System.out.println(key + "::" + value);
         }
 
@@ -45,10 +46,11 @@ public class MapTest {
         Iterator<Map.Entry<String, String>> it = entrySet.iterator();
         //遍历Set中的映射关系对象。
         while (it.hasNext()) {
-            Map.Entry<String, String> me = it.next();//取到了映射关系对象。
-            //获取键。
+            //取到了映射关系对象
+            Map.Entry<String, String> me = it.next();
+            //获取键
             String key = me.getKey();
-            //获取值。
+            //获取值
             String value = me.getValue();
             System.out.println(key + "-----" + value);
         }
@@ -70,7 +72,7 @@ public class MapTest {
          * 姓名--归属地。对应关系，获取所有的归属地。values();
          */
 
-        //所有的英文星期。
+        //所有的英文星期
         final Collection<String> values = map.values();
         for (String value : values) {
             System.out.println("value:" + value);

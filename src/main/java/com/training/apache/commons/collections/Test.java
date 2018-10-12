@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @Author Tyler Yin
+ */
 public class Test {
     public static void main(String[] args) {
         /**
@@ -19,9 +22,15 @@ public class Test {
         map.put("FIVE", "5");
         map.put("SIX", "6");
         map.put("SEVEN", "7");
-        map.firstKey();            // returns "FIVE"
-        map.nextKey("FIVE");    // returns "SIX"
-        map.nextKey("SIX");     // returns "SEVEN"
+
+        // returns "FIVE"
+        map.firstKey();
+
+        // returns "SIX"
+        map.nextKey("FIVE");
+
+        // returns "SEVEN"
+        map.nextKey("SIX");
 
         /**
          * 通过key得到value

@@ -1,5 +1,8 @@
 package com.training.apache.commons.dbutils.domain;
 
+/**
+ * @Author Tyler Yin
+ */
 public class Account {
 
     private int id;

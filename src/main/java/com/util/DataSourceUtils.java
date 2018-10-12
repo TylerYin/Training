@@ -21,7 +21,7 @@ public class DataSourceUtils {
 
     static {
         bds.setUrl(resourceBundle.getString("url"));
-        bds.setDriverClassName(resourceBundle.getString("driver"));
+        bds.setDriverClassName(resourceBundle.getString("driverClass"));
         bds.setUsername(resourceBundle.getString("username"));
         bds.setPassword(resourceBundle.getString("password"));
 

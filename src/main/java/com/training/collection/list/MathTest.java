@@ -19,12 +19,20 @@ public class MathTest {
 
         Math.abs(-4);
 
-        double d1 = Math.ceil(-12.34); //获取参数右边的整数   //11 12floor 12.34  ceil13  14  15
-        double d2 = Math.floor(12.34); //获取参数左边的整数。
-        double d3 = Math.round(12.54); //四舍五入。
+        //获取参数右边的整数  11 12floor 12.34  ceil13  14  15
+        double d1 = Math.ceil(-12.34);
 
-        System.out.println("d1 = " + d1);//13
-        System.out.println("d2 = " + d2);//12
+        //获取参数左边的整数
+        double d2 = Math.floor(12.34);
+
+        //四舍五入
+        double d3 = Math.round(12.54);
+
+        //13
+        System.out.println("d1 = " + d1);
+
+        //12
+        System.out.println("d2 = " + d2);
         System.out.println("d3 = " + d3);
         System.out.println(Math.pow(10, 3));
 
