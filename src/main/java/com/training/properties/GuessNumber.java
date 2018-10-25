@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 这是猜数字小游戏
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class GuessNumber {

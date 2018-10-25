@@ -21,7 +21,7 @@ import java.util.zip.ZipInputStream;
 /**
  * 读取QrCode文件工具类
  * 
- * @author Tyler
+ * @Author Tyler Yin
  * 
  */
 public class ReadQrCodeUtils {

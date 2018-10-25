@@ -3,7 +3,7 @@ package com.training.enumtest;
 /**
  * 定义枚举类型
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class EnumTest {

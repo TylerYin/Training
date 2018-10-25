@@ -7,7 +7,7 @@ import java.lang.reflect.Proxy;
 /**
  * 测试动态代理
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class StudentProxyTest {

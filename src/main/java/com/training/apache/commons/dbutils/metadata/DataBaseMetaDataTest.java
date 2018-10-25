@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author Tyler
+ * @Author Tyler Yin
  */
 public class DataBaseMetaDataTest {
 

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * 生成防伪码
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class OrganizeQrcodeAndBoxcode {
     public static void main(String... args) throws IOException {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class CopiedPerson {
     private String name = "";

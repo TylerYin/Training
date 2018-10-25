@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 /**
- * @author Tyler
+ * @Author Tyler Yin
  */
 public class ResultSetMetaDataTest {
     public static void main(String[] args) throws SQLException {

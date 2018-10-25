@@ -27,7 +27,7 @@ import static java.sql.DriverManager.getConnection;
 /**
  * 查找无效二维码
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class AnalysisQrCodeFile {
 

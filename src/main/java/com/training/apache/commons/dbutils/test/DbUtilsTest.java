@@ -16,7 +16,7 @@ import org.junit.Test;
 /**
  * DBUtils测试类
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class DbUtilsTest {
 

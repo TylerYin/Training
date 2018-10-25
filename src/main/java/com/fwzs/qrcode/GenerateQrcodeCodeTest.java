@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 生成二维码
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class GenerateQrcodeCodeTest {
     @Test

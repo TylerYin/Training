@@ -1,11 +1,10 @@
 package com.util;
 
-
 import java.text.NumberFormat;
 import java.text.ParseException;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2018-08-10 15:18
  * @description
  **/

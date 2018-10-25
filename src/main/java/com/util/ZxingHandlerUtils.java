@@ -15,7 +15,7 @@ import java.util.Hashtable;
 /**
  * 条形码和二维码编码解码
  *
- * @author ly
+ * @Author Tyler Yin
  * @version 2014-02-28
  */
 public class ZxingHandlerUtils {

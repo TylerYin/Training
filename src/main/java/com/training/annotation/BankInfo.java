@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * 自定义注解
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 

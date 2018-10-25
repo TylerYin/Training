@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class Person {
     private String name = "";

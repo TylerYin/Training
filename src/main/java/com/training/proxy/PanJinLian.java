@@ -3,7 +3,7 @@ package com.training.proxy;
 /**
  * 定义被代理类
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class PanJinLian implements KindWoman {

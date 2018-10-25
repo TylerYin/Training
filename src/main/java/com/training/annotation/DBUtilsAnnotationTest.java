@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 /**
  * 注解测试类
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class DBUtilsAnnotationTest {

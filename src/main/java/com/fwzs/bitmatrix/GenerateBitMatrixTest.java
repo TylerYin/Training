@@ -21,7 +21,7 @@ import java.util.zip.GZIPInputStream;
 /**
  * 扫描文件夹，批量生成二维码
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class GenerateBitMatrixTest {
 
@@ -49,8 +49,8 @@ public class GenerateBitMatrixTest {
                 String storePath = f.getParentFile().getAbsolutePath() + File.separator + f.getName().substring(0, f.getName().indexOf(".txt.gz"));
                 File directory = new File(storePath);
                 directory.mkdirs();
-                //generateMatrixByQrcode(f, storePath);
-                generateOutBoundCodeFile(f);
+                generateMatrixByQrcode(f, storePath);
+                //generateOutBoundCodeFile(f);
             });
         }
     }

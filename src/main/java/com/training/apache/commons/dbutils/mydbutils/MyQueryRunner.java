@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * @author Tyler
+ * @Author Tyler Yin
  */
 public class MyQueryRunner {
     private DataSource ds;

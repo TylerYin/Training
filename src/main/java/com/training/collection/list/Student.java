@@ -1,7 +1,7 @@
 package com.training.collection.list;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  **/
 public class Student implements Comparable {
 

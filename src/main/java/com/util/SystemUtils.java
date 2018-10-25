@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 /**
  * 读取配置文件
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class SystemUtils {
@@ -19,6 +19,12 @@ public class SystemUtils {
      */
     public static final int MONEY = Integer.parseInt(ResourceBundle.getBundle(
             "data/bank").getString("money"));
+
+    /**
+     * 从当前系统的配置文件中获取配置信息
+     */
+    public static final String APIKEY = ResourceBundle.getBundle(
+            "data/system").getString("apikey");
 
     /**
      * 获取当前类所在的路径

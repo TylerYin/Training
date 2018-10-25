@@ -18,7 +18,7 @@ import java.util.Random;
 import org.apache.commons.io.FileUtils;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2018-01-02 13:56
  * @description thread generate code method
  **/

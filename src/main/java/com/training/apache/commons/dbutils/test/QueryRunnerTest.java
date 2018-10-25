@@ -11,7 +11,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.junit.Test;
 
 /**
- * @author Tyler
+ * @Author Tyler Yin
  */
 public class QueryRunnerTest {
 

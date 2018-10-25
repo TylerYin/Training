@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class Test2 {
     public static void main(String[] args) {

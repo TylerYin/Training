@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 泛型的集合遍历
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2017-11-04 19:26
  **/
 public class GenericCollectionTest {

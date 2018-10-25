@@ -11,7 +11,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 /**
  * DataSource工具类
  *
- * @author Tyler Yin
+ * @Author Tyler Yin
  */
 public class DataSourceUtils {
 

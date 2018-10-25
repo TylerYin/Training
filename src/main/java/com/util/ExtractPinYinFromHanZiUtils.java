@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Tyler Yin
+ * @Author Tyler Yin
  * @create 2018-09-17 10:37
  * @description 从汉字中抽取拼音简码
  **/
