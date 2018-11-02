@@ -10,7 +10,7 @@ public class EnumTest {
 
     public static void main(String args[]) {
         Sex.MEAL.run();
-        Sex.FEMAIL.run();
+        Sex.FEMALE.run();
     }
 
     public enum Sex {
@@ -21,7 +21,7 @@ public class EnumTest {
             }
         },
 
-        FEMAIL("女性") {
+        FEMALE("女性") {
             @Override
             public void run() {
                 System.out.println(this.getDescription());

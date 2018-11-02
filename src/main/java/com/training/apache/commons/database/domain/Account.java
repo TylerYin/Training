@@ -1,4 +1,4 @@
-package com.training.apache.commons.dbutils.domain;
+package com.training.apache.commons.database.domain;
 
 /**
  * @Author Tyler Yin

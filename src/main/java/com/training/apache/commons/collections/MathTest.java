@@ -1,22 +1,19 @@
-package com.training.collection.list;
+package com.training.apache.commons.collections;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
 /**
- * @Description Math thread
+ * Math数序运算。方法都是静态的。
+ *
  * @Author Tyler Yin
  * @Create 2017-11-19 8:17
  **/
 public class MathTest {
+
     @Test
     public void test() {
-        /**
-         * Math数序运算。方法都是静态的。
-         * Math.PI
-         */
-
         Math.abs(-4);
 
         //获取参数右边的整数  11 12floor 12.34  ceil13  14  15

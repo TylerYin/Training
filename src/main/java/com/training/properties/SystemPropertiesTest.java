@@ -1,10 +1,10 @@
-package com.training.collection.list;
+package com.training.properties;
 
 import java.util.Properties;
 import java.util.Set;
 
 /**
- * @Description System Properties Test
+ * @Description System Properties CommonCollectionsTest
  * @Author Tyler Yin
  * @Create 2017-11-19 8:14
  **/

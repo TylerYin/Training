@@ -1,4 +1,4 @@
-package com.training.random;
+package com.training.apache.commons.random;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.RandomStringGenerator;
@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @Description random and UUID Test
+ * @Description random and UUID CommonCollectionsTest
  * @Author Tyler Yin
  * @Create 2017-11-16 21:23
  **/
@@ -45,10 +45,7 @@ public class RandomTest {
     }
 
     /**
-     * 使用UUID使用一个随机数
-     *
-     * 一般情况下，使用其生成持久化对象的主键
-     *
+     * 使用UUID生成一个随机数，一般情况下，使用其生成持久化对象的主键
      * UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的。
      * 按照开放软件基金会(OSF)制定的标准计算，用到了以太网卡地址、纳秒级时间、芯片ID码和许多可能的数字。
      * 由以下几部分的组合：当前日期和时间(UUID的第一个部分与时间有关，如果你在生成一个UUID之后，过几秒又生成一个UUID，则第一个部分不同，其余相同)，时钟序列，
@@ -80,13 +77,13 @@ public class RandomTest {
         RandomStringGenerator generator2 = new RandomStringGenerator.Builder()
                 .withinRange('0', '9').build();
         String randomNumbers = generator2.generate(4);
-        System.out.println(StringUtils.center("随机数字字符串", 15, "="));
+        System.out.println(StringUtils.center("随机数字字符串", 20, "="));
         System.out.println(randomNumbers);
 
         //使用码位为0到z的字符，生成20个code point(维基百科称之为'码位')的随机字符串
-        RandomStringGenerator generator3 = new RandomStringGenerator.Builder()
+        RandomStringGenerator generator4 = new RandomStringGenerator.Builder()
                 .withinRange('0', 'z').build();
-        String random = generator3.generate(20);
+        String random = generator4.generate(20);
         System.out.println(StringUtils.center("随机混合字符串", 20, "="));
         System.out.println(random);
     }

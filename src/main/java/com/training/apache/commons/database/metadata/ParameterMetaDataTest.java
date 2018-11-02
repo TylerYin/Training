@@ -1,4 +1,4 @@
-package com.training.apache.commons.dbutils.metadata;
+package com.training.apache.commons.database.metadata;
 
 import com.util.JdbcUtils;
 
@@ -24,8 +24,5 @@ public class ParameterMetaDataTest {
         // 获取参数个数
         int count = pmd.getParameterCount();
         System.out.println(count);
-
-        String type1 = pmd.getParameterTypeName(1);
-        System.out.println(type1);
     }
 }

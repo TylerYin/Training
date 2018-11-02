@@ -7,9 +7,9 @@ import java.util.List;
  * @Author Tyler Yin
  */
 public class CopiedPerson {
+    private int age;
     private String name = "";
     private String email = "";
-    private int age;
 
     private List<Hobby> hobbies = new ArrayList<>();
 
@@ -43,5 +43,15 @@ public class CopiedPerson {
 
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
+    }
+
+    @Override
+    public String toString() {
+        return "CopiedPerson{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", hobbies=" + hobbies +
+                '}';
     }
 }

@@ -8,9 +8,10 @@ import java.util.List;
  * @Author Tyler Yin
  */
 public class Person {
-    private String name = "";
-    private String email = "";
     private int age;
+    private String name;
+    private String email;
+    private String phone;
 
     private List<Hobby> hobbies = new ArrayList<>();
 
@@ -38,12 +39,30 @@ public class Person {
         this.age = age;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public List<Hobby> getHobbies() {
         return hobbies;
     }
 
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", hobbies=" + hobbies +
+                '}';
     }
 }
 

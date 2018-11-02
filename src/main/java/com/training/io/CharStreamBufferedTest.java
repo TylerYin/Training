@@ -5,7 +5,7 @@ import com.util.SystemUtils;
 import java.io.*;
 
 /**
- * @Description Char Stream Buffered Test
+ * @Description Char Stream Buffered CommonCollectionsTest
  * @Author Tyler Yin
  * @Create 2017-11-19 14:46
  **/

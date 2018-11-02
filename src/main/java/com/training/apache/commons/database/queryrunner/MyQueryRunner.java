@@ -1,4 +1,4 @@
-package com.training.apache.commons.dbutils.mydbutils;
+package com.training.apache.commons.database.queryrunner;
 
 import java.sql.Connection;
 import java.sql.ParameterMetaData;
@@ -35,20 +35,13 @@ public class MyQueryRunner {
      */
     public <T> T query(Connection con, String sql, MyResultSetHandler<T> mrs,
                        Object... params) throws SQLException {
-
         // 得到一个预处理的Statement
         PreparedStatement pst = con.prepareStatement(sql);
-        // 问题:sql语句中可能存在参数，需要对参数赋值
 
-        ParameterMetaData pmd = pst.getParameterMetaData();
+        // 需要对参数赋值
+        setParameters(pst, params);
 
-        // 可以得到有几个参数
-        int count = pmd.getParameterCount();
-        for (int i = 1; i <= count; i++) {
-            pst.setObject(i, params[i - 1]);
-        }
-
-        // 得到了结果集，要将结果集封装成用户想要的对象，但是，工具不可能知道用户需求
+        // 得到了结果集，要将结果集封装成用户想要的对象
         ResultSet rs = pst.executeQuery();
         return mrs.handle(rs);
     }
@@ -64,41 +57,40 @@ public class MyQueryRunner {
      */
     public int update(Connection con, String sql, Object... params)
             throws SQLException {
-        // 得到一个预处理的Statement
         PreparedStatement pst = con.prepareStatement(sql);
-        // 问题:sql语句中可能存在参数，需要对参数赋值。
 
-        ParameterMetaData pmd = pst.getParameterMetaData();
-        // 可以得到有几个参数
-        int count = pmd.getParameterCount();
-        for (int i = 1; i <= count; i++) {
-            pst.setObject(i, params[i - 1]);
-        }
+        // 需要对参数赋值
+        setParameters(pst, params);
 
         int row = pst.executeUpdate();
-        // 关闭资源
         pst.close();
         return row;
     }
 
     public int update(String sql, Object... params) throws SQLException {
         Connection con = ds.getConnection();
-
-        // 得到一个预处理的Statement.
         PreparedStatement pst = con.prepareStatement(sql);
-        // 问题:sql语句中可能存在参数，需要对参数赋值。
+        setParameters(pst, params);
+        int row = pst.executeUpdate();
 
+        pst.close();
+        con.close();
+        return row;
+    }
+
+    /**
+     * 设置参数
+     *
+     * @param pst
+     * @param params
+     * @throws SQLException
+     */
+    private void setParameters(PreparedStatement pst, Object... params) throws SQLException {
+        // 问题:sql语句中可能存在参数，需要对参数赋值。
         ParameterMetaData pmd = pst.getParameterMetaData();
-        // 可以得到有几个参数
         int count = pmd.getParameterCount();
         for (int i = 1; i <= count; i++) {
             pst.setObject(i, params[i - 1]);
         }
-
-        int row = pst.executeUpdate();
-        // 关闭资源
-        pst.close();
-        con.close();
-        return row;
     }
 }
