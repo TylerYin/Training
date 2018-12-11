@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -53,6 +54,13 @@ public class GenerateBitMatrixTest {
                 //generateOutBoundCodeFile(f);
             });
         }
+    }
+
+    @Test
+    public void testFloatDiv() {
+        BigDecimal v1 = new BigDecimal(2);
+        BigDecimal v2 = new BigDecimal(100);
+        System.out.println(v1.divide(v2, 8, BigDecimal.ROUND_HALF_UP).toPlainString());
     }
 
     /**

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author Tyler Yin
  */
-public class ParseAreaJsonTest2 {
+public class ParseAreaJsonTest1 {
 
     @Test
     public void abstractSQLFromJSONFileTest() throws SQLException {
