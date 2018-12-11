@@ -37,6 +37,9 @@
         <ehcache.version>2.6.11</ehcache.version>
         <ehcache-web.version>2.0.4</ehcache-web.version>
 
+        <redis-client.version>2.0.4</redis-client.version>
+        <jackson.version>2.5.1</jackson.version>
+
         <spring.version>5.0.8.RELEASE</spring.version>
 
         <commons-io.version>2.5</commons-io.version>
@@ -231,9 +234,15 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>2.5.1</version>
+            <version>${redis-client.version}</version>
         </dependency>
         <!-- CACHE end -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.github.dita-ot</groupId>
