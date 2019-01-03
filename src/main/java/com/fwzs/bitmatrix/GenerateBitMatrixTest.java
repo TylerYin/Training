@@ -3,6 +3,7 @@ package com.fwzs.bitmatrix;
 import com.util.ExtractPinYinFromHanZiUtils;
 import com.util.NumberFormatUtils;
 import com.util.ZxingHandlerUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -75,12 +76,17 @@ public class GenerateBitMatrixTest {
         int count = 0;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
                 new GZIPInputStream(new FileInputStream(file)), "UTF-8"))) {
-            while (null != (line = reader.readLine())) {
+            while (null != (line = reader.readLine()) && StringUtils.isNotBlank(line)) {
                 if (line.contains("=")) {
                     qrcode = line.substring(line.indexOf("=") + 1);
                 } else {
                     qrcode = line;
                 }
+
+                if (qrcode.contains(",")) {
+                    line = line.split(",")[0];
+                }
+
                 ZxingHandlerUtils.encode2(line, 400, 400, storePath + File.separator + qrcode + ".jpg");
                 count++;
             }
