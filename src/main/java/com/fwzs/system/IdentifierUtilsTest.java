@@ -1,5 +1,7 @@
 package com.fwzs.system;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -8,8 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
 
 public class IdentifierUtilsTest {
 	private static Long curIndex = 0L;
@@ -69,7 +69,7 @@ public class IdentifierUtilsTest {
 		final Collection<String> ids = new ArrayList<String>();
 		File file = new File(fileName + ".txt");
 		for (int i = 0; i < counts; i++) {
-			ids.add(IdGen1.genRadom20());
+			ids.add(IdGen.genRadom13());
 		}
 
 		try {
@@ -85,7 +85,7 @@ public class IdentifierUtilsTest {
 		final String dateScript = sdf.format(new Date());
 		final String separator = System.getProperty("line.separator");
 		for (int i = 0; i < counts; i++) {
-			bf.append(IdGen1.genRadom20() + separator);
+			bf.append(IdGen.genRadom13() + separator);
 			if (i % 5000 == 0) {
 				FileUtils.write(new File("E:\\" + longth + "_" + counts + "_" + dateScript + ".txt"), bf.toString(), "utf-8", true);
 				bf.setLength(0);

@@ -37,7 +37,7 @@
         <ehcache.version>2.6.11</ehcache.version>
         <ehcache-web.version>2.0.4</ehcache-web.version>
 
-        <redis-client.version>2.0.4</redis-client.version>
+        <redis-client.version>2.5.1</redis-client.version>
         <jackson.version>2.5.1</jackson.version>
 
         <spring.version>5.0.8.RELEASE</spring.version>
@@ -58,10 +58,29 @@
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <commons-codec.version>1.10</commons-codec.version>
         <commons-net.version>3.3</commons-net.version>
+        <projectlombok.version>1.18.4</projectlombok.version>
 
         <pinyin4j.version>2.5.0</pinyin4j.version>
         <hutool.version>4.3.1</hutool.version>
     </properties>
+
+    <!-- 设定主仓库，按设定顺序进行查找。 -->
+    <repositories>
+        <repository>
+            <id>training-repos</id>
+            <name>training Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <!-- 设定插件仓库 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>training-repos</id>
+            <name>training Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -292,6 +311,19 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${projectlombok.version}</version>
         </dependency>
 
         <dependency>
