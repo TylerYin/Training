@@ -32,21 +32,23 @@ public class IdGenInThread extends Thread {
 
     @Override
     public void run() {
-        String currentTime = String.valueOf(System.currentTimeMillis());
-        if (num >= LOOP_SIZE) {
-            num = 0;
-        }
-
+        Collection<String> ids = new ArrayList<>();
         File file = new File("D:\\Test\\twoBillionCodes" + name + ".txt");
+
         for (int i = 0; i < 10000; i++) {
-            Collection<String> ids = new ArrayList<>();
             for (int j = 0; j < 10000; j++) {
+                if (num >= LOOP_SIZE) {
+                    num = 0;
+                }
                 num++;
-                ids.add(currentTime.substring(currentTime.length() - 8) + IdGenInThread.getRandom(num, 5));
+
+                String currentTime = String.valueOf(System.currentTimeMillis());
+                ids.add(currentTime.substring(currentTime.length() - 8) + getRandom(num, 5));
             }
 
             try {
                 FileUtils.writeLines(file, ids, true);
+                ids.clear();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
