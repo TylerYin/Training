@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,19 +24,21 @@ public class ParseAreaJsonTest1 {
         BeanListHandler<Area> beanListHandler = new BeanListHandler<>(Area.class);
         Connection connection = DataSourceUtils.getConnection();
         try {
-            List<Area> areaList = runner.query(connection, "select id, parent_code from 2018_6_3 where type = '4'", beanListHandler);
+            List<String> deleteList = new ArrayList<>();
+            List<Area> areaList = runner.query(connection, "select id, name, code, parent_id from sys_area where type = '5'", beanListHandler);
             areaList.stream().forEach(area -> {
                 try {
-                    Area a = runner.query(connection, "select code from 2018_6_3 where id = '" + area.getParent_code() + "'", beanHandler);
-                    if (null != a && StringUtils.isNotBlank(a.getCode())) {
-                        runner.update(connection, "update 2018_6_3 set code ='" + a.getCode() + "' where id ='" + area.getId() + "'");
-                    } else {
-                        System.out.println("没有找到 " + area.getCode() + " 的code");
+                    Area as = runner.query(connection, "select id from sys_area where id = '" + area.getParent_id() + "'", beanHandler);
+                    if (null == as || StringUtils.isBlank(as.getId())) {
+                        deleteList.add("'" + area.getId() + "'");
+                        System.out.println(area.getName());
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             });
+            System.out.println(deleteList.size());
+            System.out.println(StringUtils.join(deleteList,","));
         } catch (SQLException e) {
             e.printStackTrace();
         }
