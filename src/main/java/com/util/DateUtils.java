@@ -1,10 +1,11 @@
 package com.util;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
@@ -190,6 +191,31 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
             e.printStackTrace();
         }
         return date;
+    }
+
+    /**
+     * 获取当前日期所属的季度
+     *
+     * @return
+     */
+    public static int getQuarter(Calendar calendar) {
+        int month = calendar.get(Calendar.MONTH);
+        switch (month) {
+            case 0:
+            case 1:
+            case 2:
+                return 1;
+            case 3:
+            case 4:
+            case 5:
+                return 2;
+            case 6:
+            case 7:
+            case 8:
+                return 3;
+            default:
+                return 4;
+        }
     }
 
     /**

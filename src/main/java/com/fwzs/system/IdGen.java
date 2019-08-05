@@ -1,5 +1,7 @@
 package com.fwzs.system;
 
+import com.util.NumberFormatUtils;
+
 import java.security.SecureRandom;
 import java.util.Random;
 import java.util.UUID;
@@ -72,6 +74,15 @@ public class IdGen {
         }
         num++;
         return currentTime.substring(currentTime.length() - 8) + IdGen.getRandom(num, 5);
+    }
+
+    public static synchronized String genNewRadom13() {
+        String currentTime = String.valueOf(System.currentTimeMillis());
+        if (num == 99999) {
+            num = 0;
+        }
+        num++;
+        return currentTime.substring(currentTime.length() - 8) + NumberFormatUtils.format(5, 5, false, num);
     }
 
     /**
