@@ -15,6 +15,7 @@ public class ProcessDrugDataTest {
 //        List<String> excelRows = ReadExcelUtils.read("src/main/java/com/fwzs/hyws/会员导出报表.xlsx", 1, columnIndexes);
 //        System.out.println(excelRows);
 
-        ReadExcelUtils.modifyExcel("src/main/java/com/fwzs/hyws/20190605100618订单明细统计.xlsx", 1);
+       // ReadExcelUtils.modifyExcel("src/main/java/com/fwzs/hyws/20190605100618订单明细统计.xlsx", 1);
+        ReadExcelUtils.modifyExcel("src/main/java/com/fwzs/drug/test.xlsx", 1);
     }
 }

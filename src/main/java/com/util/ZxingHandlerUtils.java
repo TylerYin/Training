@@ -153,7 +153,7 @@ public class ZxingHandlerUtils {
         int width = 105, height = 50;
 
         ZxingHandlerUtils.encode(contents, width, height, imgPath);
-        System.out.println("finished zxing EAN-13 encode.");
+        System.out.println("finished zxing EAN-13 encryption.");
 
         String decodeContent = ZxingHandlerUtils.decode(imgPath);
         System.out.println("解码内容如下：" + decodeContent);
@@ -167,7 +167,7 @@ public class ZxingHandlerUtils {
         int width2 = 300, height2 = 300;
 
         ZxingHandlerUtils.encode2(contents2, width2, height2, imgPath2);
-        System.out.println("finished zxing encode.");
+        System.out.println("finished zxing encryption.");
 
         String decodeContent2 = ZxingHandlerUtils.decode2(imgPath2);
         System.out.println("解码内容如下：" + decodeContent2);
