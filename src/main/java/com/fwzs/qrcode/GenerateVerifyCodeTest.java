@@ -1,4 +1,4 @@
-package com.fwzs;
+package com.fwzs.qrcode;
 
 import com.util.NumberFormatUtils;
 import org.junit.Test;

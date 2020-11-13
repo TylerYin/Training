@@ -1,6 +1,7 @@
 package com.fwzs.bitmatrix;
 
 import com.util.ExtractPinYinFromHanZiUtils;
+import com.util.FileUtils;
 import com.util.NumberFormatUtils;
 import com.util.ZxingHandlerUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -13,10 +14,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
@@ -256,6 +256,57 @@ public class GenerateBitMatrixTest {
             System.out.println("经销商帐号最长：" + accounts.stream().mapToInt(s -> s.trim().length()).max().getAsInt());
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testExtractKafkaLog() throws IOException {
+        String kafkaLogPath = "C:\\Users\\Administrator\\Desktop\\kafka_mxd_log.txt";
+        File file = new File(kafkaLogPath);
+
+        List<String> logs = FileUtils.readLines(file, Charset.forName("GBK"));
+
+        int i = 85;
+        Iterator<String> logIt = logs.iterator();
+        while (logIt.hasNext()) {
+            String log = logIt.next();
+            if (log.contains("开始生码入库")) {
+                System.out.println("");
+                System.out.println("第 " + ++i + " 个生产入库测试");
+                System.out.println(log);
+            } else if (log.contains("生码入库成功")) {
+                System.out.println(log);
+            }
+        }
+    }
+
+    @Test
+    public void generateAcquisitionFile() throws IOException {
+        File dirFile = new File("C:\\Users\\Administrator\\Desktop\\acquisitionDirectory");
+        if (dirFile.exists() && dirFile.isDirectory()) {
+            File[] files = dirFile.listFiles();
+            Arrays.stream(files).forEach(file -> {
+                LocalDateTime localDateTime = LocalDateTime.now();
+                DateTimeFormatter acquisitionDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+                String currentDateTime = localDateTime.format(acquisitionDateFormatter);
+
+                List<String> qrCodes = null;
+                try {
+                    qrCodes = FileUtils.readLines(file, Charset.forName("utf-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                List<String> acquisitionDataList = qrCodes.stream().map(qrCode -> StringUtils.substringAfter(qrCode, "="))
+                        .map(qrCode -> StringUtils.join(qrCode, ",", currentDateTime, ";"))
+                        .collect(Collectors.toList());
+
+                String acquisitionFile = "C:\\Users\\Administrator\\Desktop\\test\\" + StringUtils.substringBefore(file.getName(), ".") + "_acquisition.txt";
+                try {
+                    FileUtils.writeLines(new File(acquisitionFile), acquisitionDataList);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 }

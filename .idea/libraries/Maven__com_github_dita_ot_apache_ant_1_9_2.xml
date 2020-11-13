@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.github.dita-ot:apache-ant:1.9.2">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2.jar!/" />
+      <root url="jar://E:/Study/Maven/maven/repository/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2-javadoc.jar!/" />
+      <root url="jar://E:/Study/Maven/maven/repository/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2-sources.jar!/" />
+      <root url="jar://E:/Study/Maven/maven/repository/com/github/dita-ot/apache-ant/1.9.2/apache-ant-1.9.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
