@@ -2,7 +2,7 @@ package com.fwzs.qrcode;
 
 import com.util.SystemUtils;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;

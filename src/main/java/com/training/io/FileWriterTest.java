@@ -6,7 +6,7 @@ import com.util.FileUtils;
 import com.util.Md5Utils;
 import com.util.SystemUtils;
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileWriter;

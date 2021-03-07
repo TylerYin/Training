@@ -2,7 +2,7 @@ package com.training.proxy.dynamic;
 
 import com.training.proxy.KindWoman;
 import com.training.proxy.PanJinLian;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.lang.reflect.Proxy;
 

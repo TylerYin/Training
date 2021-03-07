@@ -3,7 +3,7 @@ package com.fwzs.qrcode;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.Charset;

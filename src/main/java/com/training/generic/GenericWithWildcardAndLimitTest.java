@@ -3,7 +3,7 @@ package com.training.generic;
 import com.training.generic.domain.Person;
 import com.training.generic.domain.Student;
 import com.training.generic.domain.Worker;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;

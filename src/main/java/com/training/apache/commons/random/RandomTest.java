@@ -2,7 +2,7 @@ package com.training.apache.commons.random;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.RandomStringGenerator;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Random;
 import java.util.UUID;
