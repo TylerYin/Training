@@ -34,7 +34,7 @@
 
         <spring.version>5.0.8.RELEASE</spring.version>
 
-        <commons-io.version>2.5</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <commons-text.version>1.4</commons-text.version>
         <commons-lang3.version>3.7</commons-lang3.version>
         <commons-logging.version>1.2</commons-logging.version>
